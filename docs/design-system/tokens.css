@@ -1,0 +1,151 @@
+/* =========================================================================
+   Design tokens — modeled on the Exa web dashboard visual language
+   (light app shell + dark "output" panel, single cobalt accent, dense 13px UI)
+   ========================================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap");
+
+:root {
+  /* ---- Brand / accent ------------------------------------------------- */
+  --blue-50:  #eef5fe;   /* active nav bg, "Try an example" chip bg */
+  --blue-100: #dbe9fd;
+  --blue-200: #b9d4fb;
+  --blue-400: #4f8ef5;
+  --blue-500: #1b85f2;   /* charts, links, toggle on */
+  --blue-600: #2443e0;   /* primary button (Run, Submit) */
+  --blue-700: #1c35b8;   /* primary hover */
+  --navy-900: #14245a;   /* hero headline ("One API to get…") */
+
+  /* ---- Neutrals (light shell) ---------------------------------------- */
+  --gray-0:   #ffffff;   /* main canvas, inputs, cards */
+  --gray-25:  #fafafa;   /* sidebar */
+  --gray-50:  #f5f5f5;   /* endpoint card, segmented bg, feedback button */
+  --gray-100: #ececec;   /* disabled toggle track */
+  --gray-200: #e5e5e5;   /* borders, dividers */
+  --gray-300: #d4d4d4;   /* input border hover */
+  --gray-400: #a3a3a3;   /* placeholder */
+  --gray-500: #737373;   /* helper / muted text */
+  --gray-600: #525252;   /* secondary text, nav icons */
+  --gray-900: #171717;   /* primary text */
+
+  /* ---- Dark panel (code / output) ------------------------------------ */
+  --ink-950: #0d0d0d;    /* panel header / tab bar */
+  --ink-900: #141414;    /* panel body / code bg */
+  --ink-850: #1c1c1c;    /* result card */
+  --ink-800: #242424;    /* result card hover, inline code chip */
+  --ink-700: #2e2e2e;    /* dark borders */
+  --ink-500: #6b6b6b;    /* line numbers */
+  --ink-300: #a8a8a8;    /* muted dark text */
+  --ink-100: #ededed;    /* dark primary text */
+
+  /* ---- Syntax (code panel) ------------------------------------------- */
+  --syn-keyword: #7aa2ff;
+  --syn-string:  #f2c46d;
+  --syn-number:  #e88c5d;
+  --syn-bool:    #7aa2ff;
+  --syn-plain:   #e6e6e6;
+
+  /* ---- Status --------------------------------------------------------- */
+  --green-500: #22a55b;  /* success toast icon, API status dot */
+  --green-50:  #eaf7ef;
+  --sky-500:   #2f8fe0;  /* info toast icon */
+  --red-500:   #e5484d;
+  --amber-500: #f5a524;
+
+  /* ---- Semantic (light) ---------------------------------------------- */
+  --bg:            var(--gray-0);
+  --bg-subtle:     var(--gray-25);
+  --bg-muted:      var(--gray-50);
+  --fg:            var(--gray-900);
+  --fg-secondary:  var(--gray-600);
+  --fg-muted:      var(--gray-500);
+  --fg-placeholder:var(--gray-400);
+  --border:        var(--gray-200);
+  --border-strong: var(--gray-300);
+  --accent:        var(--blue-600);
+  --accent-hover:  var(--blue-700);
+  --accent-soft:   var(--blue-50);
+  --accent-fg:     var(--blue-600);
+  --link:          var(--blue-500);
+  --focus-ring:    0 0 0 3px rgba(36, 67, 224, .18);
+
+  /* ---- Typography ----------------------------------------------------- */
+  --font-sans: "Geist", "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --text-2xs: 10px;   /* NEW badge, CAPS labels ("TOTAL USAGE", "API STATUS") */
+  --text-xs:  11px;   /* helper text under field labels */
+  --text-sm:  12px;   /* buttons, inputs, nav, tabs */
+  --text-base:13px;   /* body / field labels */
+  --text-md:  14px;   /* card titles, result titles */
+  --text-lg:  16px;   /* section headings ("Filters", "Crawling") */
+  --text-xl:  20px;   /* page title ("Search") */
+  --text-2xl: 24px;   /* metric values */
+  --text-3xl: 30px;   /* hero headline */
+
+  --leading-tight: 1.2;
+  --leading-normal: 1.45;
+  --leading-relaxed: 1.65;  /* result content in dark panel */
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+
+  --tracking-tight: -0.01em;    /* titles */
+  --tracking-caps: 0.06em;      /* CAPS labels */
+
+  /* ---- Spacing (4px grid) -------------------------------------------- */
+  --space-0_5: 2px;
+  --space-1: 4px;
+  --space-1_5: 6px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* ---- Radius --------------------------------------------------------- */
+  --radius-xs: 3px;   /* badges, tags */
+  --radius-sm: 4px;   /* inputs, small buttons, nav items */
+  --radius-md: 6px;   /* buttons, cards, result cards */
+  --radius-lg: 8px;   /* query box, popovers, modal */
+  --radius-xl: 12px;  /* metric cards */
+  --radius-full: 999px; /* pills (Ask bot, suggestion chips, toggles) */
+
+  /* ---- Elevation ------------------------------------------------------ */
+  --shadow-xs: 0 1px 2px rgba(0,0,0,.04);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);   /* toasts, chips */
+  --shadow-md: 0 4px 12px rgba(0,0,0,.08), 0 1px 3px rgba(0,0,0,.05);  /* menus, popovers */
+  --shadow-lg: 0 16px 40px rgba(0,0,0,.24);                            /* modal */
+
+  /* ---- Layout --------------------------------------------------------- */
+  --sidebar-w: 240px;
+  --header-h: 40px;      /* dark panel tab bar */
+  --control-h-sm: 26px;  /* small buttons, tabs */
+  --control-h: 32px;     /* inputs, selects */
+  --content-max: 880px;
+
+  /* ---- Motion --------------------------------------------------------- */
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --dur-fast: 120ms;
+  --dur: 180ms;
+}
+
+/* Dark panel scope — apply .theme-dark to the code/output column */
+.theme-dark {
+  --bg:            var(--ink-900);
+  --bg-subtle:     var(--ink-950);
+  --bg-muted:      var(--ink-850);
+  --fg:            var(--ink-100);
+  --fg-secondary:  var(--ink-300);
+  --fg-muted:      var(--ink-500);
+  --fg-placeholder:var(--ink-500);
+  --border:        var(--ink-700);
+  --border-strong: #3a3a3a;
+  --accent-soft:   rgba(79,142,245,.16);
+  --accent-fg:     #8fb4ff;
+  --link:          #8fb4ff;
+}

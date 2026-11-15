@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design System Reference</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="components.css">
+<style>
+  .doc { max-width: 1100px; margin: 0 auto; padding: 40px 24px 120px; }
+  .doc h2 { font-size: var(--text-lg); font-weight: 500; margin: 48px 0 12px; }
+  .doc h3 { font-size: var(--text-sm); font-weight: 500; color: var(--fg-muted); margin: 20px 0 8px; }
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; }
+  .sw { border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; font-size: 11px; }
+  .sw i { display: block; height: 44px; }
+  .sw div { padding: 6px 8px; } .sw code { color: var(--fg-muted); font-size: 10px; }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .frame { border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; height: 640px; }
+  .frame .app, .frame .sidebar, .frame .panel-dark { min-height: 0; height: 640px; }
+  .frame-wrap .ask-pill { position: absolute; right: 12px; bottom: 12px; }
+  .frame-wrap { position: relative; }
+  .scroll { overflow: auto; }
+  .type-row { display: grid; grid-template-columns: 140px 1fr; gap: 12px; align-items: baseline; padding: 6px 0; border-bottom: 1px solid var(--border); }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V21H3z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+  <symbol id="i-bug" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="13" rx="5"/><path d="M12 7V4M4 13h3M17 13h3M5 7l3 2M19 7l-3 2"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z"/></symbol>
+  <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6L4 20h16L14 9V3"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V4M9 20v-8M14 20V8M19 20v-5"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M17 6l2 2"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3v6M12 15v6M3 12h6M15 12h6"/></symbol>
+  <symbol id="i-undo" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 3-6.2L4 8M4 3v5h5"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></symbol>
+</svg>
+
+<div class="doc">
+  <div class="t-caps">Design system · v0.1</div>
+  <h1 class="t-hero" style="margin:8px 0 6px">One system for the whole product</h1>
+  <p class="t-muted" style="max-width:640px">Light app shell with a sidebar, dense 12–13px controls, a single cobalt accent, and a near-black panel for code and output. Modeled on the Exa web dashboard.</p>
+
+  <!-- ============ Full layout ============ -->
+  <h2>Playground layout (sidebar · settings · dark output)</h2>
+  <div class="frame-wrap"><div class="frame">
+  <div class="app app--split">
+    <aside class="sidebar">
+      <div class="sidebar__team"><span style="width:16px;height:16px;border-radius:3px;background:var(--accent);display:inline-block"></span>Personal <svg class="icon t-muted"><use href="#i-chev"/></svg></div>
+      <div class="nav-item" style="margin-top:12px"><svg class="icon"><use href="#i-home"/></svg>Home</div>
+      <div class="sidebar__group"><div class="sidebar__group-label">API Playground</div>
+        <a class="nav-item is-active"><svg class="icon"><use href="#i-search"/></svg>Search</a>
+        <a class="nav-item"><svg class="icon"><use href="#i-bug"/></svg>Crawling</a>
+        <a class="nav-item"><svg class="icon"><use href="#i-chat"/></svg>Answer</a>
+        <a class="nav-item"><svg class="icon"><use href="#i-flask"/></svg>Research</a>
+      </div>
+      <div class="sidebar__group"><div class="sidebar__group-label">Management</div>
+        <a class="nav-item"><svg class="icon"><use href="#i-chart"/></svg>Usage</a>
+        <a class="nav-item"><svg class="icon"><use href="#i-card"/></svg>Billing</a>
+        <a class="nav-item"><svg class="icon"><use href="#i-key"/></svg>API Keys</a>
+        <a class="nav-item"><svg class="icon"><use href="#i-user"/></svg>Team Settings</a>
+      </div>
+      <div class="sidebar__group"><div class="sidebar__group-label">Learn</div>
+        <a class="nav-item"><svg class="icon"><use href="#i-book"/></svg>Docs<svg class="icon nav-item__ext"><use href="#i-ext"/></svg></a>
+        <a class="nav-item"><svg class="icon"><use href="#i-grid"/></svg>MCP <span class="badge">New</span></a>
+      </div>
+      <div class="sidebar__footer"><button class="btn btn--secondary" style="justify-content:flex-start;background:var(--bg-muted);border-color:transparent;height:30px">Give us feedback</button></div>
+    </aside>
+
+    <main class="page scroll">
+      <div class="page-header">
+        <div><h1 class="t-title">Search</h1><div class="page-header__sub">Return results and their contents</div></div>
+        <div class="btn-group"><button class="btn btn--secondary">Docs</button><button class="btn btn--secondary">Copy for AI</button></div>
+      </div>
+      <div class="tabs" style="margin-top:16px"><button class="tab is-active"><svg class="icon"><use href="#i-search"/></svg>Search</button><button class="tab">Find Similar Pages</button></div>
+      <div style="margin-top:12px"><div class="t-help" style="margin-bottom:4px;color:var(--fg)">Query</div>
+        <div class="composer"><textarea>latest AI developments</textarea>
+          <div class="composer__bar"><button class="btn btn--soft">Try an example <svg class="icon"><use href="#i-chev"/></svg></button>
+          <div class="btn-group"><button class="btn btn--secondary"><svg class="icon"><use href="#i-undo"/></svg>Clear</button><button class="btn btn--primary"><svg class="icon"><use href="#i-sparkle"/></svg>Run</button></div></div>
+        </div>
+      </div>
+      <h2 class="t-section" style="margin:20px 0 6px">Search</h2>
+      <div class="field-row"><div><div class="t-label">Search Type</div><div class="t-help"><a href="#">See docs</a> for more details</div></div><select class="select"><option>Auto</option></select></div>
+      <div class="field-row"><div><span class="t-label">Result category</span> <span class="badge badge--mono">Try "people"</span></div><select class="select"><option>News Article</option></select></div>
+      <div class="field-row"><div><div class="t-label">Number of results</div><div class="t-help">Max: 100. <a href="#">Contact us</a> for more results.</div></div><input class="input" placeholder="Default: 10"></div>
+      <h2 class="t-section" style="margin:20px 0 6px">Filters</h2>
+      <div class="field-row"><div class="t-label">Published date range</div><div style="position:relative"><input class="input" placeholder="Select date range"><svg class="icon t-muted" style="position:absolute;right:8px;top:9px"><use href="#i-cal"/></svg></div></div>
+      <div class="field-row"><div><div class="t-label">Domain filter</div><div class="t-help">Match domains, subdomains, or paths</div></div><div style="text-align:right"><div class="segmented"><button class="is-active">Include</button><button>Exclude</button></div></div></div>
+      <div class="field-row"><div><div class="t-label">Full webpage text</div><div class="t-help">Markdown text for all result and subpages</div></div><div style="text-align:right"><label class="switch"><input type="checkbox" checked><span></span></label></div></div>
+      <div class="field-row field-row--nested"><div class="t-label">Include HTML tags</div><div style="text-align:right"><input type="checkbox" class="checkbox"></div></div>
+      <div class="field-row"><div><div class="t-label">Highlights</div><div class="t-help">Extract relevant highlights from the content</div></div><div style="text-align:right"><label class="switch"><input type="checkbox"><span></span></label></div></div>
+    </main>
+
+    <section class="panel-dark theme-dark">
+      <div class="panel-dark__bar">
+        <div class="pill-tabs"><button class="pill-tab"><svg class="icon"><use href="#i-code"/></svg>Code</button><button class="pill-tab is-active">Output</button></div>
+      </div>
+      <div class="tabs" style="padding:0 12px;justify-content:space-between"><div style="display:flex;gap:16px"><button class="tab">JSON</button><button class="tab is-active" style="color:var(--fg);border-bottom-color:var(--fg)">Visual</button></div><span class="mono t-muted" style="font-size:11px;align-self:center">Response 1.361s</span></div>
+      <div class="scroll" style="padding:12px;display:grid;gap:12px;align-content:start">
+        <div class="t-card">Results (10)</div>
+        <div class="result-card">
+          <div class="result-card__title">New Physical AI Models Released</div>
+          <div class="result-card__meta">1/6/2026</div>
+          <div class="result-card__url"><span class="status-dot" style="background:#76b900"></span>https://example.com/news/physical-ai-models <svg class="icon"><use href="#i-ext"/></svg></div>
+          <div class="result-card__body"><div class="t-label" style="margin-bottom:6px">Content</div>Partners unveil next-generation robots built on new open models.<br># Newsroom<br>January 5, 2026</div>
+          <span class="result-card__more">Show More ⌄</span>
+        </div>
+        <div class="code-block" style="background:var(--ink-950);border-radius:var(--radius-md)"><span class="ln">1</span><span class="tok-k">from</span> client <span class="tok-k">import</span> Client
+<span class="ln">2</span>
+<span class="ln">3</span>result = client.search(
+<span class="ln">4</span>  <span class="tok-s">"latest AI development"</span>,
+<span class="ln">5</span>  num_results = <span class="tok-n">10</span>,
+<span class="ln">6</span>  text = <span class="tok-k">True</span>
+<span class="ln">7</span>)</div>
+      </div>
+    </section>
+  </div>
+  </div>
+  <div class="ask-pill">Ask Assistant <span class="send"><svg class="icon"><use href="#i-up"/></svg></span></div>
+  </div>
+
+  <!-- ============ Color ============ -->
+  <h2>Color</h2>
+  <h3>Accent</h3>
+  <div class="swatches" id="sw-accent"></div>
+  <h3>Neutrals — light shell</h3>
+  <div class="swatches" id="sw-gray"></div>
+  <h3>Ink — dark panel</h3>
+  <div class="swatches" id="sw-ink"></div>
+  <h3>Status</h3>
+  <div class="swatches" id="sw-status"></div>
+
+  <!-- ============ Type ============ -->
+  <h2>Typography — Geist / Geist Mono</h2>
+  <div class="type-row"><code class="t-muted">hero · 30/500</code><span class="t-hero">One API to get any information</span></div>
+  <div class="type-row"><code class="t-muted">title · 20/500</code><span class="t-title">Search</span></div>
+  <div class="type-row"><code class="t-muted">metric · 24/600</code><span class="t-metric">42</span></div>
+  <div class="type-row"><code class="t-muted">section · 16/500</code><span class="t-section">Filters</span></div>
+  <div class="type-row"><code class="t-muted">card · 14/500</code><span class="t-card">Usage Over Time</span></div>
+  <div class="type-row"><code class="t-muted">label · 13/500</code><span class="t-label">Published date range</span></div>
+  <div class="type-row"><code class="t-muted">ui · 12/400</code><span style="font-size:12px">Buttons, inputs, nav items, tabs</span></div>
+  <div class="type-row"><code class="t-muted">help · 11/400</code><span class="t-help">Return results Exa crawled within this range</span></div>
+  <div class="type-row"><code class="t-muted">caps · 10/500</code><span class="t-caps">Total usage · API status</span></div>
+  <div class="type-row"><code class="t-muted">mono · 12/400</code><span class="mono" style="font-size:12px">pip install client-py</span></div>
+
+  <!-- ============ Components ============ -->
+  <h2>Buttons</h2>
+  <div class="row">
+    <button class="btn btn--primary"><svg class="icon"><use href="#i-sparkle"/></svg>Run</button>
+    <button class="btn btn--secondary"><svg class="icon"><use href="#i-undo"/></svg>Clear</button>
+    <button class="btn btn--soft">Try an example <svg class="icon"><use href="#i-chev"/></svg></button>
+    <button class="btn btn--ghost">Ghost</button>
+    <button class="btn btn--primary btn--lg">Submit</button>
+    <button class="btn btn--secondary btn--icon"><svg class="icon"><use href="#i-ext"/></svg></button>
+  </div>
+
+  <h2>Controls</h2>
+  <div class="row" style="max-width:720px">
+    <input class="input" style="width:200px" placeholder='eg. "peer reviewed"'>
+    <select class="select" style="width:180px"><option>exa-research-fast</option></select>
+    <div class="segmented"><button class="is-active">Markdown</button><button>Schema</button></div>
+    <label class="switch"><input type="checkbox" checked><span></span></label>
+    <label class="switch"><input type="checkbox"><span></span></label>
+    <input type="checkbox" class="checkbox" checked>
+    <span class="badge">New</span><span class="badge badge--mono">Try "people"</span>
+    <span class="t-caps"><span class="status-dot"></span> API status</span>
+  </div>
+  <div class="row" style="margin-top:16px">
+    <span class="chip">Find space tech startups</span><span class="chip">Find similar websites</span>
+    <div class="chat-input">Chat to build or ask about the API <svg class="icon"><use href="#i-up"/></svg></div>
+  </div>
+
+  <h2>Cards</h2>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+    <div class="card card--metric"><div class="t-caps">Total usage</div><div class="t-metric">42</div></div>
+    <div class="card card--metric"><div class="t-caps">Daily avg</div><div class="t-metric">21</div></div>
+    <div class="card card--metric"><div class="t-caps">Peak day</div><div class="t-metric">30</div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px">
+    <div class="endpoint-card"><div class="t-card">/search</div><div class="t-help">Returns results and their contents</div><div class="preview"><div class="skeleton" style="width:80%"></div><div class="skeleton" style="width:60%;margin-top:8px"></div></div></div>
+    <div class="endpoint-card"><div class="t-card">/contents</div><div class="t-help">Returns webpage contents</div><div class="preview"><div class="skeleton" style="width:70%"></div></div></div>
+    <div class="endpoint-card"><div class="t-card">/answer</div><div class="t-help">Fast, web-grounded answers</div><div class="preview" style="font-size:11px">Who is the president of Brazil?</div></div>
+    <div class="endpoint-card"><div class="t-card">/research</div><div class="t-help">Long-running research with structured output</div><div class="preview" style="font-size:11px">Searching…</div></div>
+  </div>
+
+  <h2>Overlays</h2>
+  <div class="row" style="align-items:flex-start">
+    <div class="menu">
+      <div class="menu__item"><svg class="icon"><use href="#i-check"/></svg>Team one</div>
+      <div class="menu__item" style="padding-left:30px">Team two</div>
+      <div class="menu__sep"></div>
+      <div class="menu__item menu__item--accent">+ Create team</div>
+    </div>
+    <div style="display:grid;gap:8px">
+      <div class="toast"><span class="toast__icon toast__icon--info">i</span>Search successful! Test out the additional fields to refine your search</div>
+      <div class="toast"><span class="toast__icon toast__icon--success"><svg class="icon" style="width:10px;height:10px;stroke-width:3"><use href="#i-check"/></svg></span>$5 on us for trying out our search!<span class="toast__progress" style="width:60%"></span></div>
+    </div>
+    <div class="modal" style="width:360px"><div class="modal__header"><span class="t-caps" style="color:var(--ink-300)">Response</span><span style="color:var(--ink-300)">✕</span></div><div style="padding:12px;font-size:13px">Results (10)</div></div>
+  </div>
+</div>
+
+<script>
+const css = getComputedStyle(document.documentElement);
+const groups = {
+  'sw-accent': ['blue-50','blue-100','blue-200','blue-400','blue-500','blue-600','blue-700','navy-900'],
+  'sw-gray':   ['gray-0','gray-25','gray-50','gray-100','gray-200','gray-300','gray-400','gray-500','gray-600','gray-900'],
+  'sw-ink':    ['ink-950','ink-900','ink-850','ink-800','ink-700','ink-500','ink-300','ink-100'],
+  'sw-status': ['green-500','sky-500','red-500','amber-500','syn-keyword','syn-string','syn-number'],
+};
+for (const [id, names] of Object.entries(groups)) {
+  document.getElementById(id).innerHTML = names.map(n => {
+    const v = css.getPropertyValue('--' + n).trim();
+    return `<div class="sw"><i style="background:${v}"></i><div>--${n}<br><code>${v}</code></div></div>`;
+  }).join('');
+}
+</script>
+</body>
+</html>
