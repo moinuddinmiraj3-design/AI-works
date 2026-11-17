@@ -21,6 +21,7 @@ import { CommandPalette, NewCollectionDialog, WorkspaceMenu } from "@/components
 import { collections, workspace } from "@/lib/mock";
 import { toneClasses } from "@/lib/tone";
 import { cn } from "@/lib/utils";
+import { Roll } from "@/components/ui/fx";
 
 // `match` lists every route prefix that belongs to the section, so it stays highlighted on its sub-pages.
 const nav = [
@@ -68,9 +69,9 @@ export function AppSidebar({ onNavigate, onToggle }: { onNavigate?: () => void; 
 
       {/* New search + quick find */}
       <div className="side-stack mt-2.5 flex gap-1.5">
-        <Link href="/search/new" title="New search" className="side-square flex h-[30px] min-w-0 flex-1 items-center gap-2 whitespace-nowrap rounded-md border bg-white px-2 text-[13px] text-gray-600 hover:text-foreground">
+        <Link href="/search/new" title="New search" className="fx-btn side-square flex h-[30px] min-w-0 flex-1 items-center gap-2 whitespace-nowrap rounded-md border bg-white px-2 text-[13px] text-gray-600 hover:text-foreground">
           <SquarePen className="size-3.5 shrink-0" strokeWidth={1.75} />
-          <span className="side-hide">New search</span>
+          <span className="side-hide"><Roll>New search</Roll></span>
           <span className="side-hide ml-auto"><Kbd>⌘ K</Kbd></span>
         </Link>
         <CommandPalette

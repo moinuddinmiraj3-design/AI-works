@@ -14,6 +14,7 @@ import { AddCriterionPopover, AddFilterPopover } from "@/components/popups/page-
 import { searches } from "@/lib/mock";
 import { criteria as initialCriteria, importanceLabel, type Importance } from "@/lib/search-mock";
 import { cn } from "@/lib/utils";
+import { Roll, Beam } from "@/components/ui/fx";
 
 const levels: Importance[] = ["very", "important", "nice"];
 const levelStyle: Record<Importance, string> = { very: "bg-ink-900 text-white", important: "bg-gray-500 text-white", nice: "bg-gray-200 text-gray-700" };
@@ -84,9 +85,9 @@ function Composer({
           {...{ [submitAttr]: "" }}
           onClick={onSubmit}
           aria-label="Send"
-          className="inline-flex h-8 items-center gap-1.5 rounded-full bg-ink-900 pl-3 pr-2 text-xs font-medium text-white hover:bg-ink-800"
+          className="fx-btn inline-flex h-8 items-center gap-1.5 rounded-full bg-ink-900 pl-3 pr-2 text-xs font-medium text-white hover:bg-ink-800"
         >
-          {big ? "Start" : "Send"}
+          {big && <Beam />}<Roll>{big ? "Start" : "Send"}</Roll>
           <span className="grid size-5 place-items-center rounded-full bg-white/15"><ArrowUp className="size-3" strokeWidth={2.5} /></span>
         </button>
       </div>
@@ -222,7 +223,8 @@ export function AiSourcing() {
         <button data-history-toggle aria-label="Close history" tabIndex={-1} onClick={() => setHistoryOpen(false)} className={cn("absolute inset-0 z-10 bg-black/[0.04]", !historyOpen && "hidden")} />
 
         {/* Start */}
-        <section data-ai-empty className={cn("flex flex-1 flex-col items-center justify-center px-4 py-10", phase !== "empty" && "hidden")}>
+        <section data-ai-empty className={cn("relative isolate flex flex-1 flex-col items-center justify-center overflow-hidden px-4 py-10", phase !== "empty" && "hidden")}>
+          <div aria-hidden className="fx-aura left-1/2 top-1/2 -z-10 h-[340px] w-[640px] -translate-x-1/2 -translate-y-1/2 opacity-50" />
           <div className="w-full max-w-[720px]">
             <div className="flex flex-col items-center justify-center gap-3 text-center sm:flex-row sm:text-left">
               <span className="grid size-10 shrink-0 place-items-center rounded-2xl bg-ink-900 shadow-[0_8px_20px_-8px_rgba(0,0,0,0.5)]"><LogoMark className="size-7" /></span>
@@ -294,8 +296,8 @@ export function AiSourcing() {
                     </div>
                     <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-xl bg-gray-25 px-3 py-2.5 ring-1 ring-inset ring-black/[0.04]">
                       <span className="text-xs text-gray-600">About <span className="font-medium text-foreground">260 profiles</span> match these filters</span>
-                      <Link href="/search/searching" className="inline-flex h-9 items-center gap-1.5 rounded-full bg-ink-900 px-4 text-xs font-medium text-white hover:bg-ink-800">
-                        <Sparkles className="size-3.5" />Find candidates
+                      <Link href="/search/searching" className="fx-btn inline-flex h-9 items-center gap-1.5 rounded-full bg-ink-900 px-4 text-xs font-medium text-white hover:bg-ink-800">
+                        <Beam /><Sparkles className="size-3.5" /><Roll>Find candidates</Roll>
                       </Link>
                     </div>
                   </div>

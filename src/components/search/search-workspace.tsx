@@ -53,7 +53,7 @@ export function SearchWorkspace({ title, description, progress }: { title: strin
           </Link>
           <CollectionPicker
             align="end"
-            triggerClassName="inline-flex h-9 items-center gap-1.5 rounded-full bg-ink-900 px-4 text-xs font-medium text-white hover:bg-ink-800"
+            triggerClassName="fx-btn inline-flex h-9 items-center gap-1.5 rounded-full bg-ink-900 px-4 text-xs font-medium text-white hover:bg-ink-800"
             trigger={<><FolderPlus className="size-3.5" />Add <span data-count="shortlisted">{counts.shortlisted}</span> to collection</>}
           />
         </div>

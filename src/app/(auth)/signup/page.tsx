@@ -4,6 +4,7 @@ import { Logo } from "@/components/brand/logo";
 import { GoogleMark } from "@/components/auth/google-mark";
 import { AuthShowcase } from "@/components/auth/auth-showcase";
 import { authInput, authPrimary } from "@/components/auth/auth-card";
+import { Roll, Beam } from "@/components/ui/fx";
 
 export default function SignupPage() {
   return (
@@ -26,7 +27,7 @@ export default function SignupPage() {
             <label className="block"><span className="text-xs text-gray-600">Full name</span><input id="su-name" placeholder="Alex Morgan" className={authInput} /></label>
             <label className="block"><span className="text-xs text-gray-600">Work email</span><input id="su-email" type="email" placeholder="you@company.com" className={authInput} /></label>
             <label className="block"><span className="text-xs text-gray-600">Password</span><input id="su-pass" type="password" placeholder="At least 8 characters" className={authInput} /></label>
-            <Link href="/check-email" className={authPrimary}>Create account<ArrowRight className="size-4" /></Link>
+            <Link href="/check-email" className={authPrimary}><Beam /><Roll>Create account</Roll><ArrowRight className="size-4" /></Link>
           </div>
           <p className="mt-5 text-center text-xs text-muted-foreground">Already have an account? <Link href="/login" className="font-medium text-foreground underline-offset-4 hover:underline">Sign in</Link></p>
         </div>

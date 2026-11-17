@@ -2,6 +2,7 @@ import Link from "next/link";
 import { BriefcaseBusiness, ChevronRight, Code, PenTool, Plus, TrendingUp } from "lucide-react";
 import { roles } from "@/lib/mock";
 import { AddRoleDialog } from "@/components/popups/page-popups";
+import { Roll } from "@/components/ui/fx";
 
 const icons = { pen: PenTool, code: Code, trend: TrendingUp } as const;
 
@@ -10,7 +11,8 @@ export function OpenRolesCard() {
   const totalShort = roles.reduce((n, r) => n + r.shortlisted, 0);
   const totalTarget = roles.reduce((n, r) => n + r.target, 0);
   return (
-    <section className="@container flex h-full w-full flex-col rounded-2xl bg-ink-900 p-4 text-ink-100 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.5)]">
+    <section className="@container relative isolate flex h-full w-full flex-col overflow-hidden rounded-2xl bg-ink-900 p-4 text-ink-100 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.5)]">
+      <div aria-hidden className="fx-aura -right-24 -top-28 -z-10 size-72 opacity-40" />
       <div className="flex items-center justify-between px-1">
         <div className="flex items-center gap-2.5 text-[13px] font-medium text-white">
           <span className="grid size-7 place-items-center rounded-full bg-white text-ink-900">
@@ -19,8 +21,8 @@ export function OpenRolesCard() {
           Open roles
         </div>
         <AddRoleDialog
-          triggerClassName="inline-flex h-7 items-center gap-1.5 rounded-full bg-white pl-1.5 pr-3 text-xs font-medium text-ink-900 hover:bg-white/90"
-          trigger={<><span className="grid size-4 place-items-center rounded-full bg-ink-900 text-white"><Plus className="size-3" strokeWidth={2.5} /></span>Add role</>}
+          triggerClassName="fx-btn inline-flex h-7 items-center gap-1.5 rounded-full bg-white pl-1.5 pr-3 text-xs font-medium text-ink-900 hover:bg-white/90"
+          trigger={<><span className="grid size-4 place-items-center rounded-full bg-ink-900 text-white"><Plus className="size-3" strokeWidth={2.5} /></span><Roll>Add role</Roll></>}
         />
       </div>
 

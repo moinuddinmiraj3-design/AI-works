@@ -7,6 +7,7 @@ import { Logo } from "@/components/brand/logo";
 import { toast } from "@/components/ui/toaster";
 import { GoogleMark } from "./google-mark";
 import { cn } from "@/lib/utils";
+import { Roll, Beam } from "@/components/ui/fx";
 
 const steps = [
   { title: "Create your workspace", hint: "Name and logo" },
@@ -104,11 +105,11 @@ export function Onboarding() {
             </button>
             <div className="flex items-center gap-2">
               <button data-oskip onClick={() => setStep((s) => Math.min(2, s + 1))} className={cn("inline-flex h-10 items-center rounded-full px-4 text-[13px] text-gray-500 hover:bg-gray-50", step !== 1 && "hidden")}>Skip for now</button>
-              <button data-onext onClick={() => setStep((s) => Math.min(2, s + 1))} className={cn("inline-flex h-10 items-center gap-1.5 rounded-full bg-ink-900 px-5 text-[13px] font-medium text-white hover:bg-ink-800", step === 2 && "hidden")}>
-                Continue<ArrowRight className="size-4" />
+              <button data-onext onClick={() => setStep((s) => Math.min(2, s + 1))} className={cn("fx-btn inline-flex h-10 items-center gap-1.5 rounded-full bg-ink-900 px-5 text-[13px] font-medium text-white hover:bg-ink-800", step === 2 && "hidden")}>
+                <Beam /><Roll>Continue</Roll><ArrowRight className="size-4" />
               </button>
-              <Link href="/search/searching" data-ofinish className={cn("inline-flex h-10 items-center gap-1.5 rounded-full bg-ink-900 px-5 text-[13px] font-medium text-white hover:bg-ink-800", step !== 2 && "hidden")}>
-                <Sparkles className="size-4" />Find candidates
+              <Link href="/search/searching" data-ofinish className={cn("fx-btn inline-flex h-10 items-center gap-1.5 rounded-full bg-ink-900 px-5 text-[13px] font-medium text-white hover:bg-ink-800", step !== 2 && "hidden")}>
+                <Beam /><Sparkles className="size-4" /><Roll>Find candidates</Roll>
               </Link>
             </div>
           </div>

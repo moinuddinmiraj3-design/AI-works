@@ -28,7 +28,7 @@ export function Toaster() {
       aria-live="polite"
       data-react-toaster
       className={cn(
-        "pointer-events-none fixed bottom-[calc(20px+env(safe-area-inset-bottom,0px))] left-1/2 z-[100] -translate-x-1/2 whitespace-nowrap rounded-full bg-ink-900 px-4 py-2.5 text-[13px] font-medium text-white shadow-[0_8px_24px_rgba(0,0,0,0.25)] transition-all duration-200",
+        "pointer-events-none fixed bottom-[calc(20px+env(safe-area-inset-bottom,0px))] left-1/2 z-[100] -translate-x-1/2 whitespace-nowrap rounded-full fx-glass-dark px-4 py-2.5 text-[13px] font-medium text-white transition-all duration-200",
         show ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
       )}
     >

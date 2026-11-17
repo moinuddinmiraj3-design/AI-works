@@ -14,4 +14,4 @@ export function AuthCard({ children }: { children: React.ReactNode }) {
 }
 
 export const authInput = "mt-1 h-10 w-full rounded-xl border border-black/[0.08] bg-white px-3.5 text-[13px] outline-none focus:border-gray-300 focus:ring-4 focus:ring-black/[0.04]";
-export const authPrimary = "inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-ink-900 text-[13px] font-medium text-white hover:bg-ink-800";
+export const authPrimary = "fx-btn inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-ink-900 text-[13px] font-medium text-white hover:bg-ink-800";

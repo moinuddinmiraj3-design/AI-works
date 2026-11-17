@@ -7,7 +7,7 @@ import { workspace } from "@/lib/mock";
 /** Top bar: breadcrumb on the left, usage + notifications + account on the right. */
 export function TopBar({ crumbs }: { crumbs: string[] }) {
   return (
-    <header className="sticky top-0 z-30 flex h-12 shrink-0 items-center gap-2 border-b border-black/[0.05] bg-canvas px-4 lg:px-6">
+    <header className="sticky top-0 z-30 flex h-12 shrink-0 items-center gap-2 border-b border-black/[0.05] fx-glass-bar px-4 lg:px-6">
       <MobileMenuButton />
       <nav aria-label="Breadcrumb" className="flex min-w-0 items-center gap-1.5 text-[13px]">
         {crumbs.map((c, i) => (

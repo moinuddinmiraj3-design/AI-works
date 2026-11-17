@@ -18,6 +18,7 @@ import { collections } from "@/lib/mock";
 import type { Candidate, Member, Outreach } from "@/lib/search-mock";
 import { toneClasses } from "@/lib/tone";
 import { cn } from "@/lib/utils";
+import { Roll, Beam } from "@/components/ui/fx";
 
 type Row = Member & { c: Candidate };
 type View = "all" | Outreach;
@@ -73,7 +74,7 @@ export function CollectionView({ collectionId, rows: initialRows }: { collection
   };
 
   return (
-    <div className="mx-auto w-full max-w-[1280px] px-4 pb-24 pt-4 lg:px-6">
+    <div className="mx-auto w-full max-w-[1684px] px-4 pb-24 pt-4 lg:px-8">
       {/* Header */}
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div className="flex items-center gap-3">
@@ -97,12 +98,12 @@ export function CollectionView({ collectionId, rows: initialRows }: { collection
           <button
             data-toast={`${col.name}.csv downloaded`}
             onClick={() => toast(`${col.name}.csv downloaded`)}
-            className="inline-flex h-9 items-center gap-1.5 rounded-full border border-black/[0.06] bg-white px-3.5 text-xs font-medium shadow-xs hover:bg-gray-25"
+            className="fx-btn inline-flex h-9 items-center gap-1.5 rounded-full border border-black/[0.06] bg-white px-3.5 text-xs font-medium shadow-xs hover:bg-gray-25"
           >
-            <Download className="size-3.5 text-gray-500" />Export CSV
+            <Download className="size-3.5 text-gray-500" /><Roll>Export CSV</Roll>
           </button>
-          <Link href="/outreach/sequences/sq1" className="inline-flex h-9 items-center gap-1.5 rounded-full bg-ink-900 px-4 text-xs font-medium text-white hover:bg-ink-800">
-            <Send className="size-3.5" />Add to sequence
+          <Link href="/outreach/sequences/sq1" className="fx-btn inline-flex h-9 items-center gap-1.5 rounded-full bg-ink-900 px-4 text-xs font-medium text-white hover:bg-ink-800">
+            <Beam /><Send className="size-3.5" /><Roll>Add to sequence</Roll>
           </Link>
         </div>
       </div>
@@ -188,7 +189,7 @@ export function CollectionView({ collectionId, rows: initialRows }: { collection
               title="No one in this collection yet"
               description="Shortlist people from a search, or save someone from their profile with “Save to collection”."
             >
-              <Link href="/search/new" className="inline-flex h-9 items-center gap-1.5 rounded-full bg-ink-900 px-4 text-xs font-medium text-white hover:bg-ink-800"><Search className="size-3.5" />Find people</Link>
+              <Link href="/search/new" className="fx-btn inline-flex h-9 items-center gap-1.5 rounded-full bg-ink-900 px-4 text-xs font-medium text-white hover:bg-ink-800"><Search className="size-3.5" /><Roll>Find people</Roll></Link>
               <Link href="/search/s1" className="inline-flex h-9 items-center rounded-full border border-black/[0.06] bg-white px-4 text-xs font-medium shadow-xs hover:bg-gray-25">Open a recent search</Link>
             </EmptyState>
           ) : (
@@ -297,7 +298,7 @@ export function CollectionView({ collectionId, rows: initialRows }: { collection
       <div
         data-bulk
         className={cn(
-          "fixed inset-x-0 bottom-[calc(20px+env(safe-area-inset-bottom,0px))] z-40 mx-auto flex w-fit max-w-[calc(100vw-32px)] items-center gap-1 rounded-full bg-ink-900 p-1.5 pl-4 text-xs text-white shadow-[0_12px_32px_-8px_rgba(0,0,0,0.45)] transition-all duration-200",
+          "fixed inset-x-0 bottom-[calc(20px+env(safe-area-inset-bottom,0px))] z-40 mx-auto flex w-fit max-w-[calc(100vw-32px)] items-center gap-1 rounded-full fx-glass-dark p-1.5 pl-4 text-xs text-white transition-all duration-200",
           selected.length ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"
         )}
       >

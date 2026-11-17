@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { ArrowRight, Check, Pencil, Sparkles } from "lucide-react";
 import { candidates } from "@/lib/search-mock";
 import { cn } from "@/lib/utils";
+import { Roll, Beam } from "@/components/ui/fx";
 
 /* Timeline (seconds). Kept in plain numbers so the prototype can run the same animation. */
 export const RUN = { steps: [0, 0.7, 1.4, 3.6], done: 4.4, leave: 5.2, total: 214, strong: 38 };
@@ -40,7 +41,8 @@ export function Searching({ brief }: { brief: string }) {
   const f = frame(t);
 
   return (
-    <div className="mx-auto w-full max-w-[720px] px-4 pb-10 pt-10 lg:px-6" data-run-root>
+    <div className="relative isolate mx-auto w-full max-w-[720px] px-4 pb-10 pt-10 lg:px-6" data-run-root>
+      <div aria-hidden className="fx-aura left-1/2 top-24 -z-10 h-64 w-[min(560px,100%)] -translate-x-1/2 opacity-40" />
       <div className="rounded-2xl border border-black/[0.06] bg-white p-6 shadow-[0_1px_2px_rgba(16,24,40,0.05),0_4px_12px_-6px_rgba(16,24,40,0.08)] sm:p-8">
         <div className="flex items-center gap-2 text-xs text-brand-700">
           <span className="relative flex size-2"><span className="absolute inline-flex size-full animate-ping rounded-full bg-brand-500 opacity-50" /><span className="relative inline-flex size-2 rounded-full bg-brand-500" /></span>
@@ -89,7 +91,7 @@ export function Searching({ brief }: { brief: string }) {
 
         <div className="mt-6 flex flex-wrap justify-between gap-2">
           <Link href="/search/new" className="inline-flex h-10 items-center gap-1.5 rounded-full px-4 text-[13px] text-gray-600 hover:bg-gray-50"><Pencil className="size-3.5" />Edit brief</Link>
-          <Link href="/search/s1" className="inline-flex h-10 items-center gap-1.5 rounded-full bg-ink-900 px-5 text-[13px] font-medium text-white hover:bg-ink-800">See matches now<ArrowRight className="size-4" /></Link>
+          <Link href="/search/s1" className="fx-btn inline-flex h-10 items-center gap-1.5 rounded-full bg-ink-900 px-5 text-[13px] font-medium text-white hover:bg-ink-800"><Beam /><Roll>See matches now</Roll><ArrowRight className="size-4" /></Link>
         </div>
       </div>
       <p className="mt-4 text-center text-xs text-muted-foreground">You can leave this page. Lasso keeps searching and lets you know when it&apos;s done.</p>

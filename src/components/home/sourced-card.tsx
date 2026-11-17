@@ -5,6 +5,7 @@ import { ImportDialog } from "@/components/popups/page-popups";
 import { ShareDialog } from "@/components/popups/common-popups";
 import { searches, sourced } from "@/lib/mock";
 import { cn } from "@/lib/utils";
+import { Roll, Beam } from "@/components/ui/fx";
 
 /* Stepped mosaic in the corner: each column a bit taller, fading in. */
 const mosaic = [
@@ -66,18 +67,18 @@ export function SourcedCard() {
       </ul>
 
       <div className="mt-auto grid grid-cols-3 gap-2 pt-4">
-        <Link href="/search/new" className="inline-flex h-9 items-center justify-center gap-2 rounded-full bg-ink-900 text-[13px] font-medium text-white transition-colors hover:bg-ink-800">
-          <Plus className="size-4" /><span>New<span className="max-sm:hidden"> search</span></span>
+        <Link href="/search/new" className="fx-btn inline-flex h-9 items-center justify-center gap-2 rounded-full bg-ink-900 text-[13px] font-medium text-white hover:bg-ink-800">
+          <Beam /><Plus className="size-4" /><span className="sm:hidden"><Roll>New</Roll></span><span className="max-sm:hidden"><Roll>New search</Roll></span>
         </Link>
         <ImportDialog
-          triggerClassName="inline-flex h-9 items-center justify-center gap-2 rounded-full bg-gray-50 text-[13px] font-medium transition-colors hover:bg-gray-100"
-          trigger={<><Upload className="size-3.5 text-gray-500" /><span className="max-sm:hidden">Import list</span><span className="sm:hidden">Import</span></>}
+          triggerClassName="fx-btn inline-flex h-9 items-center justify-center gap-2 rounded-full bg-gray-50 text-[13px] font-medium transition-colors hover:bg-gray-100"
+          trigger={<><Upload className="size-3.5 text-gray-500" /><span className="max-sm:hidden"><Roll>Import list</Roll></span><span className="sm:hidden">Import</span></>}
         />
         <ShareDialog
           title="Share hiring report"
           link="report-nov"
-          triggerClassName="inline-flex h-9 items-center justify-center gap-2 rounded-full bg-gray-50 text-[13px] font-medium transition-colors hover:bg-gray-100"
-          trigger={<><Share2 className="size-3.5 text-gray-500" /><span className="max-sm:hidden">Share report</span><span className="sm:hidden">Share</span></>}
+          triggerClassName="fx-btn inline-flex h-9 items-center justify-center gap-2 rounded-full bg-gray-50 text-[13px] font-medium transition-colors hover:bg-gray-100"
+          trigger={<><Share2 className="size-3.5 text-gray-500" /><span className="max-sm:hidden"><Roll>Share report</Roll></span><span className="sm:hidden">Share</span></>}
         />
       </div>
     </Card>

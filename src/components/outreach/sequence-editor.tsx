@@ -16,6 +16,7 @@ import { EnrollDialog, SendTestDialog, TemplatePicker } from "@/components/popup
 import { fill, previewPeople, recipients, type Sequence } from "@/lib/outreach-mock";
 import { applyFormat, richHtml } from "@/lib/rich-text";
 import { cn } from "@/lib/utils";
+import { Roll, Beam } from "@/components/ui/fx";
 
 const card = "rounded-2xl border border-black/[0.06] bg-white shadow-[0_1px_2px_rgba(16,24,40,0.05),0_4px_12px_-6px_rgba(16,24,40,0.08)]";
 const vars = ["First name", "Company", "Role"];
@@ -33,7 +34,7 @@ export function SequenceEditor({ seq }: { seq: Sequence }) {
   const totalDays = steps.reduce((n, s) => n + s.waitDays, 0);
 
   return (
-    <div className="mx-auto w-full max-w-[1280px] px-4 pb-10 pt-4 lg:px-6">
+    <div className="mx-auto w-full max-w-[1684px] px-4 pb-10 pt-4 lg:px-8">
       <Link href="/outreach" className="inline-flex items-center gap-1.5 text-[13px] text-gray-500 hover:text-foreground">
         <ArrowLeft className="size-4" />Outreach
       </Link>
@@ -62,10 +63,10 @@ export function SequenceEditor({ seq }: { seq: Sequence }) {
           <button
             data-toggle-status
             onClick={() => setStatus((s) => (s === "active" ? "paused" : "active"))}
-            className="inline-flex h-9 min-w-[132px] items-center justify-center gap-1.5 rounded-full bg-ink-900 px-4 text-xs font-medium text-white hover:bg-ink-800"
+            className="fx-btn inline-flex h-9 min-w-[132px] items-center justify-center gap-1.5 rounded-full bg-ink-900 px-4 text-xs font-medium text-white hover:bg-ink-800"
           >
-            <span data-when="active" className={cn("inline-flex items-center gap-1.5", status !== "active" && "hidden")}><Pause className="size-3.5" />Pause sequence</span>
-            <span data-when="inactive" className={cn("inline-flex items-center gap-1.5", status === "active" && "hidden")}><Play className="size-3.5" />Activate sequence</span>
+            <span data-when="active" className={cn("inline-flex items-center gap-1.5", status !== "active" && "hidden")}><Pause className="size-3.5" /><Roll>Pause sequence</Roll></span>
+            <span data-when="inactive" className={cn("inline-flex items-center gap-1.5", status === "active" && "hidden")}><Play className="size-3.5" /><Roll>Activate sequence</Roll></span>
           </button>
         </div>
       </div>
@@ -268,7 +269,7 @@ export function SequenceEditor({ seq }: { seq: Sequence }) {
           {seq.recipients === 0 ? (
             <div className={card}>
               <EmptyState icon={UserPlus} title="No one enrolled yet" description="Enroll a collection and everyone with an email starts at step 1 on the next send window.">
-                <EnrollDialog triggerClassName="inline-flex h-9 items-center gap-1.5 rounded-full bg-ink-900 px-4 text-xs font-medium text-white hover:bg-ink-800" trigger={<><UserPlus className="size-3.5" />Enroll recipients</>} />
+                <EnrollDialog triggerClassName="fx-btn inline-flex h-9 items-center gap-1.5 rounded-full bg-ink-900 px-4 text-xs font-medium text-white hover:bg-ink-800" trigger={<><Beam /><UserPlus className="size-3.5" /><Roll>Enroll recipients</Roll></>} />
               </EmptyState>
             </div>
           ) : (

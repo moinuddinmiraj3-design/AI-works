@@ -13,6 +13,7 @@ import { LogoMark } from "@/components/brand/logo";
 import { GoogleMark } from "@/components/auth/google-mark";
 import { user, workspace } from "@/lib/mock";
 import { cn } from "@/lib/utils";
+import { Roll } from "@/components/ui/fx";
 
 const card = "rounded-2xl border border-black/[0.06] bg-white shadow-[0_1px_2px_rgba(16,24,40,0.05),0_4px_12px_-6px_rgba(16,24,40,0.08)]";
 const input = "mt-1 h-10 w-full rounded-xl border border-black/[0.08] bg-gray-25 px-3.5 text-[13px] outline-none focus:border-gray-300 focus:bg-white";
@@ -53,7 +54,7 @@ function Panel({ title, desc, children, footer }: { title: string; desc: string;
       {footer !== false && (
         <div className="mt-2 flex justify-end gap-2 border-t border-black/[0.06] pt-4">
           <button data-toast="Changes discarded" onClick={() => toast("Changes discarded")} className="inline-flex h-9 items-center rounded-full px-4 text-xs text-gray-600 hover:bg-gray-50">Cancel</button>
-          <button data-save data-toast="Changes saved" onClick={() => toast("Changes saved")} className="inline-flex h-9 items-center rounded-full bg-ink-900 px-4 text-xs font-medium text-white hover:bg-ink-800">Save changes</button>
+          <button data-save data-toast="Changes saved" onClick={() => toast("Changes saved")} className="fx-btn inline-flex h-9 items-center rounded-full bg-ink-900 px-4 text-xs font-medium text-white hover:bg-ink-800"><Roll>Save changes</Roll></button>
         </div>
       )}
     </section>
@@ -80,7 +81,7 @@ export function SettingsView({ initial = "profile" }: { initial?: Key }) {
   const [t, setT] = useState({ warm: true, track: true, unsub: false });
 
   return (
-    <div className="mx-auto w-full max-w-[1120px] px-4 pb-10 pt-4 lg:px-6">
+    <div className="mx-auto w-full max-w-[1684px] px-4 pb-10 pt-4 lg:px-8">
       <h1 className="text-[26px] font-medium leading-tight tracking-[-0.025em]">Settings</h1>
       <p className="mt-1 text-[13px] text-muted-foreground">Manage your profile, workspace, email account and plan.</p>
 
@@ -174,7 +175,7 @@ export function SettingsView({ initial = "profile" }: { initial?: Key }) {
             <Panel title="Team members" desc="Everyone here can search, shortlist and send outreach." footer={false}>
               <form className="flex flex-wrap gap-2" onSubmit={(e) => e.preventDefault()}>
                 <input id="invite-email" type="email" placeholder="name@northwind.com" className="h-10 min-w-0 flex-1 rounded-xl border border-black/[0.08] bg-gray-25 px-3.5 text-[13px] outline-none focus:border-gray-300 focus:bg-white" />
-                <button data-toast="Invite sent" onClick={() => toast("Invite sent")} className="inline-flex h-10 items-center gap-1.5 rounded-full bg-ink-900 px-4 text-xs font-medium text-white hover:bg-ink-800"><Plus className="size-3.5" />Invite</button>
+                <button data-toast="Invite sent" onClick={() => toast("Invite sent")} className="fx-btn inline-flex h-10 items-center gap-1.5 rounded-full bg-ink-900 px-4 text-xs font-medium text-white hover:bg-ink-800"><Plus className="size-3.5" /><Roll>Invite</Roll></button>
               </form>
               <ul className="mt-4 divide-y divide-black/[0.06]">
                 {members.map((m) => (

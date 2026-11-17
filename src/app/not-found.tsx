@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Compass } from "lucide-react";
 import { Logo } from "@/components/brand/logo";
+import { Roll, Beam } from "@/components/ui/fx";
 
 export default function NotFound() {
   return (
@@ -13,7 +14,7 @@ export default function NotFound() {
           <h1 className="mt-4 text-[20px] font-medium tracking-[-0.02em]">This page wandered off</h1>
           <p className="mt-1.5 text-[13px] text-muted-foreground">The link might be old, or the page was moved. Your searches and lists are safe.</p>
           <div className="mt-6 flex justify-center gap-2">
-            <Link href="/" className="inline-flex h-9 items-center rounded-full bg-ink-900 px-4 text-xs font-medium text-white hover:bg-ink-800">Go to dashboard</Link>
+            <Link href="/" className="fx-btn inline-flex h-9 items-center rounded-full bg-ink-900 px-4 text-xs font-medium text-white hover:bg-ink-800"><Beam /><Roll>Go to dashboard</Roll></Link>
             <Link href="/search/new" className="inline-flex h-9 items-center rounded-full border border-black/[0.06] bg-white px-4 text-xs font-medium shadow-xs hover:bg-gray-25">Start a search</Link>
           </div>
         </div>

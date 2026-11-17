@@ -44,7 +44,7 @@ export function Popover({
         data-pop-panel
         role="menu"
         className={cn(
-          "absolute z-50 max-w-[calc(100vw-24px)] rounded-xl border border-black/[0.08] bg-white p-1 text-foreground shadow-[0_16px_40px_-12px_rgba(16,24,40,0.22)]",
+          "fx-glass absolute z-50 max-w-[calc(100vw-24px)] rounded-xl border border-black/[0.08] p-1 text-foreground",
           side === "bottom" ? "top-full mt-1.5" : "bottom-full mb-1.5",
           align === "end" ? "right-0" : "left-0",
           !open && "hidden",
@@ -178,13 +178,13 @@ export function Dialog({
       </Trigger>
       {wrap(
       <div data-dialog-panel className={cn("fixed inset-0 z-[60]", !open && "hidden")}>
-        <div data-dialog-close className="absolute inset-0 bg-black/30" onClick={close} />
+        <div data-dialog-close className="absolute inset-0 bg-ink-900/25 backdrop-blur-[3px]" onClick={close} />
         <div
           role="dialog"
           aria-modal="true"
           aria-label={title}
           className={cn(
-            "absolute flex flex-col bg-white text-left text-foreground shadow-[0_24px_64px_-16px_rgba(0,0,0,0.35)]",
+            "absolute flex flex-col bg-white/90 text-left text-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_24px_64px_-16px_rgba(0,0,0,0.35)] ring-1 ring-black/[0.06] backdrop-blur-2xl backdrop-saturate-150",
             side === "right"
               ? "inset-y-2 right-2 w-[min(420px,calc(100vw-16px))] rounded-2xl"
               : "left-1/2 top-[10vh] max-h-[80vh] w-[min(var(--dlg-w),calc(100vw-32px))] -translate-x-1/2 rounded-2xl"

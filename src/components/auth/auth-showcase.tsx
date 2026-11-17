@@ -25,7 +25,7 @@ export function AuthShowcase() {
 
         <div className="relative mt-auto space-y-2.5">
           {picks.map((c, i) => (
-            <div key={c.id} className="flex items-center gap-3 rounded-2xl bg-white p-3 text-foreground shadow-[0_12px_32px_-12px_rgba(0,0,0,0.6)]" style={{ marginLeft: i * 28, marginRight: (2 - i) * 28 }}>
+            <div key={c.id} className="flex items-center gap-3 rounded-2xl bg-white/[0.88] p-3 text-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_12px_32px_-12px_rgba(0,0,0,0.6)] ring-1 ring-white/50 backdrop-blur-xl backdrop-saturate-150" style={{ marginLeft: i * 28, marginRight: (2 - i) * 28 }}>
               <img src={c.avatar} alt="" className="size-10 rounded-full object-cover" />
               <div className="min-w-0 flex-1 leading-tight">
                 <div className="text-[13px] font-medium">{c.name}</div>

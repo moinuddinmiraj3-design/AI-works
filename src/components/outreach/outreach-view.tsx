@@ -11,6 +11,7 @@ import { ComposeDialog, ConfirmDialog, TemplateDialog } from "@/components/popup
 import { VarText } from "./var-text";
 import { fill, mails, sequences, templates } from "@/lib/outreach-mock";
 import { cn } from "@/lib/utils";
+import { Roll, Beam } from "@/components/ui/fx";
 
 const card = "rounded-2xl border border-black/[0.06] bg-white shadow-[0_1px_2px_rgba(16,24,40,0.05),0_4px_12px_-6px_rgba(16,24,40,0.08)]";
 
@@ -35,7 +36,7 @@ export function OutreachView() {
   const list = mails.filter((m) => (mailFilter === "scheduled" ? m.status === "scheduled" : m.status !== "scheduled"));
 
   return (
-    <div className="mx-auto w-full max-w-[1280px] px-4 pb-10 pt-4 lg:px-6">
+    <div className="mx-auto w-full max-w-[1684px] px-4 pb-10 pt-4 lg:px-8">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <h1 className="text-[26px] font-medium leading-tight tracking-[-0.025em]">Outreach</h1>
@@ -43,11 +44,11 @@ export function OutreachView() {
         </div>
         <div className="flex gap-2">
           <TemplateDialog
-            triggerClassName="inline-flex h-9 items-center gap-1.5 rounded-full border border-black/[0.06] bg-white px-3.5 text-xs font-medium shadow-xs hover:bg-gray-25"
-            trigger={<><FileText className="size-3.5 text-gray-500" />New template</>}
+            triggerClassName="fx-btn inline-flex h-9 items-center gap-1.5 rounded-full border border-black/[0.06] bg-white px-3.5 text-xs font-medium shadow-xs hover:bg-gray-25"
+            trigger={<><FileText className="size-3.5 text-gray-500" /><Roll>New template</Roll></>}
           />
-          <Link href="/outreach/sequences/sq4" className="inline-flex h-9 items-center gap-1.5 rounded-full bg-ink-900 px-4 text-xs font-medium text-white hover:bg-ink-800">
-            <Plus className="size-3.5" />New sequence
+          <Link href="/outreach/sequences/sq4" className="fx-btn inline-flex h-9 items-center gap-1.5 rounded-full bg-ink-900 px-4 text-xs font-medium text-white hover:bg-ink-800">
+            <Beam /><Plus className="size-3.5" /><Roll>New sequence</Roll>
           </Link>
         </div>
       </div>
@@ -211,8 +212,8 @@ export function OutreachView() {
                           first={m.to.split(" ")[0]}
                           company={m.company}
                           reply={m.subject}
-                          triggerClassName="inline-flex h-8 items-center gap-1.5 rounded-full bg-ink-900 px-3.5 text-xs font-medium text-white hover:bg-ink-800"
-                          trigger={<><MessageSquareReply className="size-3.5" />Reply</>}
+                          triggerClassName="fx-btn inline-flex h-8 items-center gap-1.5 rounded-full bg-ink-900 px-3.5 text-xs font-medium text-white hover:bg-ink-800"
+                          trigger={<><MessageSquareReply className="size-3.5" /><Roll>Reply</Roll></>}
                         />
                       </div>
                     </div>
@@ -245,7 +246,7 @@ export function OutreachView() {
                     triggerClassName="inline-flex h-8 items-center gap-1.5 rounded-full px-3 text-xs text-gray-500 hover:bg-gray-50 hover:text-foreground"
                     trigger={<><Pencil className="size-3.5" />Edit</>}
                   />
-                  <Link href="/outreach/sequences/sq1" className="inline-flex h-8 items-center rounded-full bg-ink-900 px-3.5 text-xs font-medium text-white hover:bg-ink-800">Use in sequence</Link>
+                  <Link href="/outreach/sequences/sq1" className="fx-btn inline-flex h-8 items-center rounded-full bg-ink-900 px-3.5 text-xs font-medium text-white hover:bg-ink-800"><Roll>Use in sequence</Roll></Link>
                 </div>
               </article>
             ))}

@@ -53,7 +53,7 @@ export function ActivityChart() {
       <div className="@container mt-auto pt-5" title="Each square is one candidate">
         <div
           className="flex justify-center gap-1"
-          style={{ ["--cell" as string]: "clamp(12px, calc((100cqw - 13 * 4px) / 14), 24px)" }}
+          style={{ ["--cell" as string]: "clamp(12px, calc((100cqw - 13 * 4px) / 14), 38px)" }}
           onMouseLeave={() => setActive(today)}
         >
           {pipelineDays.map((day, i) => {

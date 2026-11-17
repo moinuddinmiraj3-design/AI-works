@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Logo } from "@/components/brand/logo";
 import { GoogleMark } from "@/components/auth/google-mark";
 import { AuthShowcase } from "@/components/auth/auth-showcase";
+import { Roll, Beam } from "@/components/ui/fx";
 
 export default function LoginPage() {
   return (
@@ -32,8 +33,8 @@ export default function LoginPage() {
               <span className="flex items-baseline justify-between text-xs text-gray-600">Password<Link href="/forgot-password" className="text-[11px] text-gray-500 hover:text-foreground hover:underline">Forgot password?</Link></span>
               <input id="login-pass" type="password" defaultValue="lassodemo" className="mt-1 h-10 w-full rounded-xl border border-black/[0.08] bg-white px-3.5 text-[13px] outline-none focus:border-gray-300 focus:ring-4 focus:ring-black/[0.04]" />
             </label>
-            <Link href="/" className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-ink-900 text-[13px] font-medium text-white hover:bg-ink-800">
-              Sign in<ArrowRight className="size-4" />
+            <Link href="/" className="fx-btn inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-ink-900 text-[13px] font-medium text-white hover:bg-ink-800">
+              <Beam /><Roll>Sign in</Roll><ArrowRight className="size-4" />
             </Link>
           </form>
 

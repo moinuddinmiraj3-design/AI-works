@@ -7,6 +7,7 @@ import { CollectionPicker, ComposeDialog } from "@/components/popups/common-popu
 import { toast } from "@/components/ui/toaster";
 import { CriterionIcon } from "./criterion-icon";
 import { criteria, importanceLabel, type Candidate } from "@/lib/search-mock";
+import { Roll } from "@/components/ui/fx";
 
 const verdict = (m: number) => (m >= 90 ? "Excellent match" : m >= 80 ? "Strong match" : "Partial match");
 
@@ -27,8 +28,8 @@ export function ProfilePane({ c, criteriaList = criteria, flat }: { c: Candidate
           <div className="mt-4 flex gap-1.5">
             <CollectionPicker
               rootClassName="flex-1"
-              triggerClassName="inline-flex h-8 w-full items-center justify-center gap-1.5 rounded-full bg-ink-900 text-xs font-medium text-white hover:bg-ink-800"
-              trigger={<><FolderPlus className="size-3.5" />Add to collection</>}
+              triggerClassName="fx-btn inline-flex h-8 w-full items-center justify-center gap-1.5 rounded-full bg-ink-900 text-xs font-medium text-white hover:bg-ink-800"
+              trigger={<><FolderPlus className="size-3.5" /><Roll>Add to collection</Roll></>}
             />
             <ComposeDialog
               to={c.name}
